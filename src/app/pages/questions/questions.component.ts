@@ -115,6 +115,7 @@ import { Question, Topic, Tag, Difficulty, Status } from '../../core/models/mode
                 class="px-4 py-2 rounded-xl bg-dark-800 border border-dark-700 text-dark-300 hover:text-white hover:border-dark-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
           ← Prev
         </button>
+<<<<<<< HEAD
 
         <ng-container *ngFor="let p of pageNumbers">
           <span *ngIf="p === -1" class="px-2 text-dark-500">…</span>
@@ -128,16 +129,22 @@ import { Question, Topic, Tag, Difficulty, Status } from '../../core/models/mode
           </button>
         </ng-container>
 
+=======
+        <span class="text-dark-400 text-sm px-4">Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9
         <button (click)="changePage(currentPage + 1)" [disabled]="currentPage >= totalPages - 1"
                 class="px-4 py-2 rounded-xl bg-dark-800 border border-dark-700 text-dark-300 hover:text-white hover:border-dark-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
           Next →
         </button>
       </div>
 
+<<<<<<< HEAD
       <p *ngIf="totalElements > 0" class="text-center text-dark-500 text-sm mt-3">
         Showing {{ currentPage * 10 + 1 }}–{{ min((currentPage + 1) * 10, totalElements) }} of {{ totalElements }} questions
       </p>
 
+=======
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9
       <!-- Add/Edit Modal -->
       <div *ngIf="showModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" (click)="closeModal()"></div>
@@ -249,6 +256,7 @@ export class QuestionsComponent implements OnInit {
 
   load() {
     this.loading = true;
+<<<<<<< HEAD
 
     // If topic is selected, use getTopicQuestions (fetches all for that topic, filters client-side)
     if (this.filters.topic) {
@@ -269,6 +277,9 @@ export class QuestionsComponent implements OnInit {
 
     // No topic filter — use search or plain list
     const hasFilter = this.filters.keyword || this.filters.difficulty;
+=======
+    const hasFilter = this.filters.keyword || this.filters.topic || this.filters.difficulty;
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9
     const obs = hasFilter
       ? this.api.searchQuestions(this.filters, this.currentPage)
       : this.api.getQuestions(this.currentPage, 10, this.sortBy);
@@ -283,6 +294,7 @@ export class QuestionsComponent implements OnInit {
   onFilterChange() { this.currentPage = 0; this.load(); }
   changePage(p: number) { this.currentPage = p; this.load(); }
 
+<<<<<<< HEAD
   get pageNumbers(): number[] {
     const pages: number[] = [];
     const total = this.totalPages;
@@ -307,6 +319,8 @@ export class QuestionsComponent implements OnInit {
 
   min(a: number, b: number) { return Math.min(a, b); }
 
+=======
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9
   openModal() { this.showModal = true; this.editingQuestion = null; this.form = this.emptyForm(); this.error = ''; }
   closeModal() { this.showModal = false; this.error = ''; }
 

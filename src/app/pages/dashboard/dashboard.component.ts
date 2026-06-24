@@ -81,7 +81,11 @@ import { forkJoin } from 'rxjs';
           <div class="space-y-3">
             <div *ngFor="let topic of topics.slice(0, 6)"
                  class="flex items-center justify-between p-3 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors cursor-pointer"
+<<<<<<< HEAD
                  [routerLink]="['/topics', topic.id, 'questions']">
+=======
+                 [routerLink]="['/questions']" [queryParams]="{topic: topic.id}">
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9
               <span class="text-sm text-dark-200 font-medium">{{ topic.name }}</span>
               <span class="text-xs bg-primary-500/20 text-primary-400 px-2 py-0.5 rounded-full font-medium">
                 {{ topic.questionCount }}

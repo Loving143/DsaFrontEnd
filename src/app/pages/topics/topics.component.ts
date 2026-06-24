@@ -45,7 +45,11 @@ import { Topic } from '../../core/models/models';
           </div>
           <h3 class="text-white font-semibold text-lg mb-1 group-hover:text-primary-400 transition-colors">{{ topic.name }}</h3>
           <p class="text-dark-400 text-sm mb-4">{{ topic.questionCount }} question{{ topic.questionCount !== 1 ? 's' : '' }}</p>
+<<<<<<< HEAD
           <a [routerLink]="['/topics', topic.id, 'questions']"
+=======
+          <a [routerLink]="['/questions']" [queryParams]="{topic: topic.id}"
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9
              class="text-xs text-primary-400 hover:text-primary-300 font-medium transition-colors">
             View questions →
           </a>

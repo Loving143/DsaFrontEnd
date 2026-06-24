@@ -67,6 +67,7 @@ export interface QuestionRequest {
 export interface AnswerRequest { code: string; explanation: string; }
 export interface NoteRequest { content: string; }
 export interface TagRequest { name: string; }
+<<<<<<< HEAD
 
 // ── Daily Challenge ───────────────────────────────────────────────────────────
 
@@ -97,3 +98,5 @@ export interface ChallengeStore {
   longestStreak: number;
   history: ScoreEntry[];
 }
+=======
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9

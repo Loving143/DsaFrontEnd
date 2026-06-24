@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+<<<<<<< HEAD
 import { map } from 'rxjs/operators';
+=======
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9
 import {
   Topic, TopicRequest, Question, QuestionRequest,
   Answer, AnswerRequest, Note, NoteRequest,
@@ -10,7 +13,11 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
+<<<<<<< HEAD
   private base = 'http://10.226.41.160:8083';
+=======
+  private base = 'http://localhost:8083';
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9
 
   constructor(private http: HttpClient) {}
 
@@ -30,6 +37,7 @@ export class ApiService {
   deleteTopic(id: number): Observable<void> {
     return this.http.delete<void>(`${this.base}/topics/${id}`);
   }
+<<<<<<< HEAD
   getTopicQuestions(id: number, page = 0, size = 10, keyword?: string, difficulty?: string): Observable<PagedResponse<Question>> {
     // Backend returns plain Question[] for this endpoint, so we wrap it into PagedResponse shape
     return this.http.get<Question[]>(`${this.base}/topics/${id}/questions`).pipe(
@@ -53,6 +61,12 @@ export class ApiService {
         return { content, page, size, totalElements, totalPages, last: page >= totalPages - 1 };
       })
     );
+=======
+  getTopicQuestions(id: number, page = 0, size = 20): Observable<Question[]> {
+    return this.http.get<Question[]>(`${this.base}/topics/${id}/questions`, {
+      params: new HttpParams().set('page', page).set('size', size)
+    });
+>>>>>>> 12c312ec3e26b7ed7bd08b5d2a3b0bd8fc2032c9
   }
 
   // Questions
